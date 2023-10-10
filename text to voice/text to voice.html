@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .main {
+        display: grid;
+        gap: 20px;
+        width: 600px;
+        max-width: calc(100vw - 40px);
+        padding: 30px;
+        border-radius: 10px;
+        background-color: #0003;
+      }
+      
+      #text {
+        display: block;
+        height: 100px;
+        padding: 20px;
+        border: none;
+        font-size: inherit;
+        font-family: inherit;
+        resize: vertical;
+      }
+      
+      #speak {
+        padding: 10px;
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: #0009;
+        font-size: inherit;
+        font-family: inherit;
+        cursor: pointer;
+        appearance: none;
+      }
+          </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text to voice</title>
+</head>
+<body>
+  <center>
+    <h2>This Is Text To Voice In Javascript</h2>
+    <div class="main">
+        <label for ="text">Text to speak</label>
+        <textarea id="text">This is Text to voice in javascript with simple javascript function we use SpeechSynthesisUtterance for This </textarea>
+  <button id="speak">Click To Speak Text</button>
+    </div>
+  </center>
+   <script>
+    const textEl = document.getElementById('text');
+const speakEl = document.getElementById('speak');
+speakEl.addEventListener('click', speakText);
+
+function speakText() {
+  window.speechSynthesis.cancel();
+
+  // speak text
+  const text = textEl.value;
+  const utterance = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(utterance);
+}
+      
+   </script> 
+</body>
+</html>
